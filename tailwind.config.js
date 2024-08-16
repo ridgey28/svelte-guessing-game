@@ -1,7 +1,6 @@
 import daisyui from 'daisyui';
-module.exports = {
+export default {
 	content: ['./src/**/*.{svelte,js,ts}'],
-
 	plugins: [daisyui],
 	daisyui: {
 		themes: ['light', 'sunset']

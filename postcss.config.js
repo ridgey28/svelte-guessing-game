@@ -1,6 +1,5 @@
 import tailwindcss from 'tailwindcss';
 import autoprefixer from 'autoprefixer';
-
-module.exports = {
+export default {
 	plugins: [tailwindcss, autoprefixer]
 };
