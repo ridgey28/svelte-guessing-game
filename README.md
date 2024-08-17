@@ -1,38 +1,56 @@
-# create-svelte
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+# Svelte 5 Guessing Game
 
-## Creating a project
+A Svelte version of my guessing game which I previously created using vanilla JavaScript on
+[Worldoweb](https://www.worldoweb.co.uk/2020/easy-javascript-guessing-game-part-1)
 
-If you're seeing this, you've probably already done this step. Congrats!
+Svelte 5 is currently in development and things may change in the near future causing it to break.
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+## Run Locally
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Clone the project
 
 ```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+  git clone https://github.com/ridgey28/svelte-guessing-game.git
 ```
 
-## Building
-
-To create a production version of your app:
+Go to the project directory
 
 ```bash
-npm run build
+  cd svelte-guessing-game
 ```
 
-You can preview the production build with `npm run preview`.
+Install dependencies
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+```bash
+  pnpm install
+```
+
+Start the server
+
+```bash
+  pnpm run dev
+```
+
+
+## Tech Stack
+
+**Client:** Svelte, Daisy UI, TypeScript, TailwindCSS
+
+**Server:** Node
+
+
+## Demo
+
+[CodeSandbox](https://k5zsrg-5173.csb.app/)
+
+## Special Thanks
+
+[JoyOfCode](https://youtu.be/HnNgkwHZIII?si=Ciip31MDD81hmazl)
+
+[DesignToolsHub](https://www.designtoolshub.com/universal/logo-generator)
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
