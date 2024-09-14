@@ -1,11 +1,9 @@
-
 # Svelte 5 Guessing Game
 
 A Svelte version of my guessing game which I previously created using vanilla JavaScript on
 [Worldoweb](https://www.worldoweb.co.uk/2020/easy-javascript-guessing-game-part-1)
 
 Svelte 5 is currently in development and things may change in the near future causing it to break.
-
 
 ## Run Locally
 
@@ -33,13 +31,11 @@ Start the server
   pnpm run dev
 ```
 
-
 ## Tech Stack
 
 **Client:** Svelte, Daisy UI, TypeScript, TailwindCSS
 
 **Server:** Node
-
 
 ## Demo
 

@@ -1,33 +1,44 @@
 <script lang="ts">
 	import { localStore } from '$lib/localStore.svelte';
-	import Button from '$lib/components/Button.svelte';
+	import ButtonGroup from '$lib/components/ButtonGroup.svelte';
 
 	let currentLevel = localStore('currentLevel', 5);
 	let modal: boolean = $state(false);
 	let ref: HTMLElement;
-	let guess: number = $state(0);
+	let guess: number | string = $state('');
 	let randomNumber: number = $state.raw(Math.floor(Math.random() * (1 - 100) + 100));
-	let message: string = $state('');
+	let message: string = $state('Pick a number');
 	let guesses: number = $state(0);
 	let badges: number[] = $state([]);
 
-	let restartGame = () => {
+	const restartGame = () => {
 		randomNumber = Math.floor(Math.random() * (1 - 100) + 100);
 		guesses = 0;
 		badges = [];
-		message = '';
+		message = 'Pick a number';
 		guess = 0;
 		modal = false;
+		ref.focus();
 	};
 
-	let handleKeydown = (e: KeyboardEvent) => {
+	const levelSwitch = (value: number) => {
+		if (guesses > currentLevel.value) {
+			message = 'You will lose, please switch to a different level';
+			return;
+		} else {
+			currentLevel.value = value;
+		}
+	};
+	const handleKeydown = (e: KeyboardEvent) => {
 		if (e.key === 'Enter') {
 			checkNumber();
 		}
 	};
 
-	let checkNumber = () => {
-		guesses++;
+	const checkNumber = () => {
+		guess = Number(guess);
+		ref.focus();
+
 		if (guess < 1 || guess > 100) {
 			message = 'Please enter a number between 1 and 100';
 			return;
@@ -36,92 +47,58 @@
 			message = 'You have already guessed that number';
 			return;
 		}
-		if (guesses === currentLevel.value) {
+
+		guesses++;
+		if (guesses >= currentLevel.value) {
 			message = 'You have reached the maximum number of guesses. The number was ' + randomNumber;
 			modal = true;
 			return;
 		}
-
-		badges = [...badges, guess];
+		badges.push(guess);
 		if (guess !== randomNumber) {
 			if (guess > randomNumber) {
-				message = 'You guessed too high';
+				message = 'You need to go lower 👇';
 			} else {
-				message = 'You guessed too low';
+				message = 'You need to go higher 👆';
 			}
 		} else {
 			message = `Super, you guessed right. You guessed it in ${guesses} tries.`;
 			modal = true;
 		}
-		guess = 0;
+		guess = '';
 	};
 	$effect(() => {
 		ref.focus();
 	});
 </script>
 
-<Button
-	onclick={() => (currentLevel.value = 10)}
-	level="Easy"
-	currentLevel={currentLevel.value}
-	val={10}
-/>
-<Button
-	onclick={() => (currentLevel.value = 5)}
-	level="Medium"
-	currentLevel={currentLevel.value}
-	val={5}
-/>
-<Button
-	onclick={() => (currentLevel.value = 2)}
-	level="Hard"
-	currentLevel={currentLevel.value}
-	val={2}
-/>
 <svelte:head>
-	<title>Svelte Guessing Game</title>
+	<title>Svelte 5 Guessing Game</title>
 </svelte:head>
+<ButtonGroup currentLevel={currentLevel.value} {levelSwitch} />
 
 <div class="my-6">
-	<label class="form-control w-full">
-		<div class="label">
-			<span class="label-text font-bold">Enter a Number</span>
-		</div>
+	<h2 class="text-4xl font-bold">{message}</h2>
+</div>
+<div class="my-6">
+	<div class="join w-full">
 		<input
 			type="number"
-			inputmode="numeric"
 			min="1"
 			max="100"
+			maxlength="3"
 			bind:this={ref}
 			bind:value={guess}
-			onselect={() => (message = '')}
 			placeholder="Enter number"
-			class="input input-bordered input-lg w-full"
+			class="input input-bordered join-item w-5/6"
 			onkeydown={handleKeydown}
 		/>
-	</label>
+		<button onclick={checkNumber} class="btn btn-primary join-item rounded-r-full">Submit</button>
+	</div>
 </div>
-<button onclick={checkNumber} class="btn btn-primary">Submit</button>
+
 <p class="my-2">Hit <kbd class="kbd kbd-md">Enter</kbd> to submit.</p>
 
-{#if message !== ''}
-	<div role="alert" class="alert">
-		<svg
-			xmlns="http://www.w3.org/2000/svg"
-			fill="none"
-			viewBox="0 0 24 24"
-			class="stroke-info h-6 w-6 shrink-0"
-		>
-			<path
-				stroke-linecap="round"
-				stroke-linejoin="round"
-				stroke-width="2"
-				d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-			></path>
-		</svg>
-		<span>{message}</span>
-	</div>
-{/if}
 <div class="my-6">
 	{#if badges.length > 0}
 		<h2 class="text-xl">Guesses</h2>
