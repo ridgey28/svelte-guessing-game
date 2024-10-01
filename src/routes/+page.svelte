@@ -16,13 +16,13 @@
 		guesses = 0;
 		badges = [];
 		message = 'Pick a number';
-		guess = 0;
+		guess = '';
 		modal = false;
 		ref.focus();
 	};
 
 	const levelSwitch = (value: number) => {
-		if (guesses > currentLevel.value) {
+		if (guesses >= value) {
 			message = 'You will lose, please switch to a different level';
 			return;
 		} else {

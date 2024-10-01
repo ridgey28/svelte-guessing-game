@@ -1,7 +1,7 @@
 <script lang="ts">
 	type Props = {
-		currentLevel: number;
 		levelSwitch: (val: number) => void;
+		currentLevel: number;
 	};
 	const buttons = [
 		{ level: 'Easy', val: 10 },
