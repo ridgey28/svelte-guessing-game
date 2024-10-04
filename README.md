@@ -3,6 +3,9 @@
 A Svelte version of my guessing game which I previously created using vanilla JavaScript on
 [Worldoweb](https://www.worldoweb.co.uk/2020/easy-javascript-guessing-game-part-1)
 
+## Follow the Tutorial
+[New Svelte 5 Guessing Game 2024](https://wp.me/poe8j-4e7) 
+
 Svelte 5 is currently in development and things may change in the near future causing it to break.
 
 ## Run Locally
@@ -33,19 +36,13 @@ Start the server
 
 ## Tech Stack
 
-**Client:** Svelte, Daisy UI, TypeScript, TailwindCSS
+**Client:** Svelte 5, Daisy UI, TypeScript, TailwindCSS
 
 **Server:** Node
-
-## Demo
-
-[CodeSandbox](https://k5zsrg-5173.csb.app/)
 
 ## Special Thanks
 
 [JoyOfCode](https://youtu.be/HnNgkwHZIII?si=Ciip31MDD81hmazl)
-
-[DesignToolsHub](https://www.designtoolshub.com/universal/logo-generator)
 
 ## License
 
