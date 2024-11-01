@@ -4,7 +4,8 @@ A Svelte version of my guessing game which I previously created using vanilla Ja
 [Worldoweb](https://www.worldoweb.co.uk/2020/easy-javascript-guessing-game-part-1)
 
 ## Follow the Tutorial
-[New Svelte 5 Guessing Game 2024](https://wp.me/poe8j-4e7) 
+
+[New Svelte 5 Guessing Game 2024](https://wp.me/poe8j-4e7)
 
 Svelte 5 has officially been released.
 
