@@ -7,7 +7,9 @@ A Svelte version of my guessing game which I previously created using vanilla Ja
 
 [New Svelte 5 Guessing Game 2024](https://wp.me/poe8j-4e7)
 
-Svelte 5 has officially been released.
+## Demo
+
+[Svelte Guesing Game Demo](https://ridgey28.github.io/svelte-guessing-game/)
 
 ## Run Locally
 
