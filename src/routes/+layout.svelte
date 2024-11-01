@@ -1,6 +1,7 @@
 <script>
 	import '../app.css';
 	export const ssr = false;
+	export const prerender = true;
 </script>
 
 <div class="hero bg-base-200 min-h-[95vh]">
