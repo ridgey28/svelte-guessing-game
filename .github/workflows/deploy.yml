@@ -28,7 +28,7 @@ jobs:
 
       - name: build
         env:
-          BASE_PATH: '/${{ github.event.repository.svelte-guessing-game }}'
+          BASE_PATH: '/${{ svelte-guessing-game }}'
           run: | 
             pnpm run build
 
