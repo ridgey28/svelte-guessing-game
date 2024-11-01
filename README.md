@@ -6,7 +6,7 @@ A Svelte version of my guessing game which I previously created using vanilla Ja
 ## Follow the Tutorial
 [New Svelte 5 Guessing Game 2024](https://wp.me/poe8j-4e7) 
 
-Svelte 5 is currently in development and things may change in the near future causing it to break.
+Svelte 5 has officially been released.
 
 ## Run Locally
 
